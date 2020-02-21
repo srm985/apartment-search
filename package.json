@@ -1,0 +1,60 @@
+{
+  "author": "Sean McQuay",
+  "bugs": {
+    "url": "https://github.com/srm985/apartment-search/issues"
+  },
+  "dependencies": {
+    "axios": "^0.19.2"
+  },
+  "description": "Utility to parse thousands of apartment listings to find suitable matches.",
+  "devDependencies": {
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "@babel/node": "^7.6.3",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/preset-env": "^7.6.3",
+    "babel-eslint": "^10.0.3",
+    "concurrently": "^5.1.0",
+    "cross-env": "^6.0.3",
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "husky": "^3.0.9",
+    "lint-staged": "^9.4.2",
+    "nodemon": "^1.19.4",
+    "onchange": "^6.1.0"
+  },
+  "homepage": "https://github.com/srm985/apartment-search#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "cross-env FORCE_COLOR=true lint-staged"
+    }
+  },
+  "keywords": [],
+  "license": "MIT",
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "main": "index.js",
+  "name": "apartment-search",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/srm985/apartment-search.git"
+  },
+  "scripts": {
+    "build": "babel src --out-dir dist",
+    "develop": "concurrently  --raw \"npm:nodemon\" \"npm:watch\"",
+    "fire": "babel-node -r node_modules/dotenv/config src/index.js.js",
+    "lint": "eslint src/**/*.js",
+    "lint:fix": "eslint --fix src/**/*.js scripts/**/*.js",
+    "nodemon": "nodemon --exec babel-node -r node_modules/dotenv/config src/index.js",
+    "serve": "node dist/index.js",
+    "start": "npm run develop",
+    "update": "npm update --save/--save-dev",
+    "watch": "onchange \"src/**/*.js\" -- npm run lint --silent"
+  },
+  "version": "1.0.0"
+}
