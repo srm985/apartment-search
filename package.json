@@ -4,7 +4,7 @@
     "url": "https://github.com/srm985/apartment-search/issues"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "node-html-parser": "^1.2.7"
   },
   "description": "Utility to parse thousands of apartment listings to find suitable matches.",
